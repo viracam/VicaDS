@@ -32,6 +32,7 @@ function watch(){
     gulp.watch('./scss/**/*.scss', buildStyles);
     gulp.watch('./**/*.html').on('change', browserSync.reload);
     gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+    gulp.series('style_min');
 }
 exports.buildStyles = buildStyles;
 exports.style_min = style_min;
