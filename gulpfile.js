@@ -23,16 +23,9 @@ function style_min() {
   
 
 
-function watch(){
-    browserSync.init({
-        server:{
-            baseDir:'./'
-        }
-    });
-    gulp.watch('./scss/**/*.scss', buildStyles);
-    gulp.watch('./**/*.html').on('change', browserSync.reload);
-    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
-}
+gulp.task('watch', ['style_min'], function watch(){
+    gulp.watch('./scss/**/*.scss', ['style_min']);
+});
 exports.buildStyles = buildStyles;
 exports.style_min = style_min;
 exports.watch = watch;
