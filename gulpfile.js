@@ -24,8 +24,8 @@ function style_min() {
 
 
 function watch(){
-    gulp.watch('./scss/**/*.scss', buildStyles);
-    gulp.series('style_min');
+    gulp.watch('./scss/**/*.scss', 
+    gulp.series('style_min'));
 }
 exports.buildStyles = buildStyles;
 exports.style_min = style_min;
