@@ -3,6 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const browserSync = require('browser-sync').create();
 const minifyCSS = require('gulp-minify-css');
 const concat = require('gulp-concat');
+const version = require('./package.json');
 
 
 //gulp sass
@@ -17,7 +18,7 @@ function style_min() {
     return gulp.src('./scss/**/*.scss')
       .pipe(sass())
       .pipe(minifyCSS())
-      .pipe(concat('style_main.min.css'))
+      .pipe(concat('style_main_'+  version.version + '.min.css'))
       .pipe(gulp.dest('./public/stylesheets'));
   };
   

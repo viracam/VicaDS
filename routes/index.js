@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var version = require('../package.json');
 
 /* GET home page. */
 function createRoutes(theDirectory, namePage, titlePage){
   router.get(theDirectory, function(req, res, next) {
-    res.render(namePage, { title: titlePage });
+    res.render(namePage, { title: titlePage , version:version.version});
   });
 }
 createRoutes('/', 'index', 'Vica Ds');
