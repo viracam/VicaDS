@@ -23,9 +23,10 @@ function style_min() {
   
 
 
-gulp.task('watch', ['style_min'], function watch(){
-    gulp.watch('./scss/**/*.scss', ['style_min']);
-});
+function watch(){
+    gulp.watch('./scss/**/*.scss', 
+    gulp.series('style_min'));
+}
 exports.buildStyles = buildStyles;
 exports.style_min = style_min;
 exports.watch = watch;
